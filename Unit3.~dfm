@@ -18,6 +18,7 @@ object Form3: TForm3
     Top = 480
     Width = 337
     Height = 49
+    Anchors = [akBottom,akLeft]
     Caption = #1042#1099#1076#1072#1090#1100' '#1072#1085#1072#1083#1080#1079
     TabOrder = 0
     OnClick = BitBtn1Click
@@ -27,6 +28,7 @@ object Form3: TForm3
     Top = 480
     Width = 313
     Height = 49
+    Anchors = [akBottom,akLeft]
     Caption = #1053#1072#1079#1072#1076
     TabOrder = 1
     OnClick = BitBtn2Click
@@ -36,6 +38,7 @@ object Form3: TForm3
     Top = 0
     Width = 649
     Height = 481
+    Anchors = [akBottom,akLeft,akRight,akTop]
     TabOrder = 2
   end
 end
