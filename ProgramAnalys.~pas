@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Grids, ComObj;
+  Dialogs, StdCtrls, Grids, ComObj, Menus;
 
 type
   TForm1 = class(TForm)
@@ -13,13 +13,17 @@ type
     Button2: TButton;
     Button3: TButton;
     OpenDialog1: TOpenDialog;
-    Button4: TButton;
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N2: TMenuItem;
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure StringGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
+    procedure N1Click(Sender: TObject);
+    procedure N2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -32,7 +36,7 @@ var
 
 implementation
 
-uses Unit2, Unit3;
+uses Unit2, Unit3, Unit4;
 procedure Import_Data(XLSFile:string; Grid:TStringGrid);
  const
   xlCellTypeLastCell=$0000000B;
@@ -200,9 +204,9 @@ begin
     Form3.StringGrid1.Cells[5,5]:=FloatToStrF(m-l,fffixed,19,4);
     k:=(StrToFloat(Form1.StringGrid1.Cells[1,12])-StrToFloat(Form1.StringGrid1.Cells[1,15]))/StrToFloat(Form1.StringGrid1.Cells[1,13]);
     Form3.StringGrid1.Cells[1,6]:=FloatToStrF(k,fffixed,19,4);
-    l:=(StrToFloat(Form1.StringGrid1.Cells[1,12])-StrToFloat(Form1.StringGrid1.Cells[1,15]))/StrToFloat(Form1.StringGrid1.Cells[1,13]);
+    l:=(StrToFloat(Form1.StringGrid1.Cells[2,12])-StrToFloat(Form1.StringGrid1.Cells[2,15]))/StrToFloat(Form1.StringGrid1.Cells[2,13]);
     Form3.StringGrid1.Cells[2,6]:=FloatToStrF(l,fffixed,19,4);
-    m:=(StrToFloat(Form1.StringGrid1.Cells[1,12])-StrToFloat(Form1.StringGrid1.Cells[1,15]))/StrToFloat(Form1.StringGrid1.Cells[1,13]);
+    m:=(StrToFloat(Form1.StringGrid1.Cells[3,12])-StrToFloat(Form1.StringGrid1.Cells[3,15]))/StrToFloat(Form1.StringGrid1.Cells[3,13]);
     Form3.StringGrid1.Cells[3,6]:=FloatToStrF(m,fffixed,19,4);
     Form3.StringGrid1.Cells[4,6]:=FloatToStrF(l-k,fffixed,19,4);
     Form3.StringGrid1.Cells[5,6]:=FloatToStrF(m-l,fffixed,19,4);
@@ -222,6 +226,17 @@ procedure TForm1.StringGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;
   Rect: TRect; State: TGridDrawState);
 begin
 StringGrid1.ColWidths[0] := 220;
+end;
+
+procedure TForm1.N1Click(Sender: TObject);
+begin
+ Form4.Show();
+ Form1.Visible:=False;
+end;
+
+procedure TForm1.N2Click(Sender: TObject);
+begin
+ Form1.Close;
 end;
 
 end.

@@ -4,15 +4,18 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, Grids, ComObj;
+  Dialogs, StdCtrls, Buttons, Grids, ComObj, Menus;
 
 type
   TForm2 = class(TForm)
     StringGrid: TStringGrid;
     BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    procedure BitBtn2Click(Sender: TObject);
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N2: TMenuItem;
     procedure BitBtn1Click(Sender: TObject);
+    procedure N1Click(Sender: TObject);
+    procedure N2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -24,15 +27,9 @@ var
 
 implementation
 
-uses ProgramAnalys;
+uses ProgramAnalys, Unit4;
 
 {$R *.dfm}
-
-procedure TForm2.BitBtn2Click(Sender: TObject);
-begin
- Form2.Close;
- Form1.Show();
-end;
 
 procedure TForm2.BitBtn1Click(Sender: TObject);
 Var w:variant;
@@ -89,5 +86,16 @@ begin
 
  w.ActiveDocument.Range.Text:=str;
  end;
+
+procedure TForm2.N1Click(Sender: TObject);
+begin
+ Form4.Show();
+end;
+
+procedure TForm2.N2Click(Sender: TObject);
+begin
+ Form2.Close;
+ Form1.Show();
+end;
 
 end.

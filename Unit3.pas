@@ -4,15 +4,18 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, Grids, ComObj;
+  Dialogs, StdCtrls, Buttons, Grids, ComObj, Menus;
 
 type
   TForm3 = class(TForm)
     BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
     StringGrid1: TStringGrid;
-    procedure BitBtn2Click(Sender: TObject);
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    N2: TMenuItem;
     procedure BitBtn1Click(Sender: TObject);
+    procedure N1Click(Sender: TObject);
+    procedure N2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -24,15 +27,9 @@ var
 
 implementation
 
-uses ProgramAnalys;
+uses ProgramAnalys, Unit4;
 
 {$R *.dfm}
-
-procedure TForm3.BitBtn2Click(Sender: TObject);
-begin
- Form3.Close;
- Form1.Show();
-end;
 
 procedure TForm3.BitBtn1Click(Sender: TObject);
 Var w:variant;
@@ -99,6 +96,17 @@ begin
                                                                                              'для увеличения имущества производственного назначения.';
 
  w.ActiveDocument.Range.Text:=str;
+end;
+
+procedure TForm3.N1Click(Sender: TObject);
+begin
+  Form4.Show();
+end;
+
+procedure TForm3.N2Click(Sender: TObject);
+begin
+ Form3.Close;
+ Form1.Show();
 end;
 
 end.
